@@ -1,0 +1,82 @@
+<div *ngIf="movieDetails">
+    
+    <a routerLink="movies-catalog" class="previous round backward-btn">&#8249;</a>
+    <div class="header-content"> 
+        <app-header [headerText]="movieDetails.title"></app-header> 
+    </div>
+
+    <div class='movie-details'>
+        <div class="movie-img">
+            <img src="https://image.tmdb.org/t/p/original/{{movieDetails.poster_path}}">
+        </div>
+        <div class="movie-text-details">
+            <div class="description">
+                <h2>description</h2>
+                <h4>{{movieDetails.overview}}</h4>
+            </div>
+
+            <div class="tagline">
+                <h3>Tagline: {{movieDetails.tagline}}</h3>
+                <!-- <p></p> -->
+            </div>
+
+            <div class="average-rating">
+                <h3>AVERAGE RATING: {{movieDetails.vote_average}}/10</h3>
+                <!-- <p></p> -->
+            </div>
+
+            <div class="original-language">
+                <h3>ORIGINAL LANGUAGE: {{movieDetails.original_language}}</h3>
+            </div>
+            <div class="release_date">
+                <h3>RELEASE DATE: {{movieDetails.release_date}}</h3>
+            </div>
+            <div class="duration">
+                <h3>DURATION: {{movieDetails.runtime}} minutes</h3>
+            </div>
+            <div class="revenue">
+                <h3>REVENUE: {{movieDetails.revenue}} USD</h3>
+            </div>
+            <div class="genres" >
+                <h3>GENRES: 
+                <p class="genre" 
+                   *ngFor="let genre of movieDetails.genres"
+                   >  {{genre.name+", "}}  </p>
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="loading-spinner"  *ngIf="!movieDetails">
+        <app-loading></app-loading>
+    </div>
+    
+
+
+<!-- 
+    
+adult: false
+backdrop_path: "/ctMserH8g2SeOAnCw5gFjdQF8mo.jpg"
+belongs_to_collection: null
+budget: 145000000
+genres: (3) [{…}, {…}, {…}]
+homepage: "https://www.barbie-themovie.com"
+id: 346698
+imdb_id: "tt1517268"
+original_language: "en"
+original_title: "Barbie"
+overview: "Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans."
+popularity: 3733.791
+poster_path: "/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg"
+production_companies: (4) [{…}, {…}, {…}, {…}]
+production_countries: (2) [{…}, {…}]
+release_date: "2023-07-19"
+revenue: 1385132678
+runtime: 114
+spoken_languages: [{…}]
+status: "Released"
+tagline: "She's everything. He's just Ken."
+title: "Barbie"
+video: false
+vote_average: 7.38
+vote_count: 3888 -->

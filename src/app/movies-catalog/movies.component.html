@@ -1,0 +1,16 @@
+<div class="header-content"> 
+    <app-header [headerText]="'highly rated movies'"></app-header> 
+</div>
+
+<div class="movies" *ngIf="moviesDataArrived">
+
+    <div class="movie_content col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let movie of movies">
+        
+        <app-movie class="movie-card" [movieData]="movie"></app-movie>
+    </div>
+</div>
+
+
+<div class="loading-spinner" *ngIf="!moviesDataArrived" >
+    <app-loading></app-loading>
+</div>
