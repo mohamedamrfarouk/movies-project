@@ -17,12 +17,16 @@ export class SignUpComponent implements OnInit{
   constructor(private userService: UsersService, private router: Router) {}
 
   ngOnInit() {
-      this.signupForm = new FormGroup({
-        userData: new FormGroup({
-          'email': new FormControl(null, [Validators.required, Validators.email]),
-          'password': new FormControl(null, [Validators.required, Validators.minLength(8)])
-        }),
-      })
+    this.createForm()
+  }
+
+  createForm(){      
+    this.signupForm = new FormGroup({
+      userData: new FormGroup({
+        'email': new FormControl(null, [Validators.required, Validators.email]),
+        'password': new FormControl(null, [Validators.required, Validators.minLength(8)])
+      }),
+    })
   }
 
   onSubmit() {

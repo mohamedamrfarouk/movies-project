@@ -1,4 +1,4 @@
 <div class="header">
     <h1>{{headerText}}</h1>
-    <button type="button" class="btn logOut-btn" (click)="logout()">Log Out</button>
+    <button *ngIf="loggedIn" type="button" class="btn logOut-btn" (click)="logout()">Log Out</button>
 </div>

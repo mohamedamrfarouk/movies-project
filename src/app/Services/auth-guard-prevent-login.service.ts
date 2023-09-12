@@ -6,16 +6,16 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard {
+export class AuthGuardLogin {
 
   constructor(private authService: AuthService, private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, 
               state: RouterStateSnapshot): boolean{
-                if(localStorage.getItem('loggedIn')==='true'){
+                if(localStorage.getItem('loggedIn')!=='true'){
                   return true
                 }else{
-                  this.router.navigate(['/','login']);
+                  this.router.navigate(['/','movies-catalog']);
                 }
   }
 }

@@ -8,7 +8,6 @@ import { MovieComponent } from './movie/movie.component';
 import { HeaderComponent } from './header/header.component';
 import { LoadingComponent } from './loading/loading.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
-// import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { AuthGuard } from './Services/auth-guard.service';

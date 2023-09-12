@@ -5,5 +5,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./loading.component.css']
 })
 export class LoadingComponent {
-
 }

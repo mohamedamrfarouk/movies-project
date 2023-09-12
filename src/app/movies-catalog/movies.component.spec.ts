@@ -104,23 +104,4 @@ describe('MoviesComponent', () => {
     }); 
   }))
 
-//   it('should create movies cards', fakeAsync(() => {
-//     // moviesService = fixture.debugElement.injector.get(MoviesService);
-//     component.moviesDataArrived = true
-//     component.movies = mockMovie
-//     fixture.detectChanges();
-//     tick()
-//     fixture.detectChanges();
-//     tick()
-//     fixture.detectChanges();
-//     tick()
-//     fixture.detectChanges();
-//     tick()
-//     fixture.detectChanges();
-//     let compiled = fixture.debugElement.nativeElement;
-//     expect(compiled.querySelectorAll('.movie-card').length).toBeGreaterThan(0);
-//   })
-// )
-
-
 });

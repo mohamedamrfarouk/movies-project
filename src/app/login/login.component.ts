@@ -18,12 +18,15 @@ export class LoginComponent implements OnInit{
   constructor(private usersService: UsersService, private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
-      this.loginForm = new FormGroup({
-        userData: new FormGroup({
-          'email': new FormControl(null, [Validators.required, Validators.email]),
-          'password': new FormControl(null, [Validators.required, Validators.minLength(8)])
-        }),
-      })
+    this.createForm()
+  }
+  createForm(){
+    this.loginForm = new FormGroup({
+      userData: new FormGroup({
+        'email': new FormControl(null, [Validators.required, Validators.email]),
+        'password': new FormControl(null, [Validators.required, Validators.minLength(8)])
+      }),
+    })
   }
 
   onSubmit() {
@@ -31,17 +34,12 @@ export class LoginComponent implements OnInit{
     this.password = this.loginForm.get('userData.password').value
     const isValid = this.usersService.isUserValid(this.email, this.password);
 
-    // console.log(this.loginForm)
-    // console.log("email: ",this.email)
-    // console.log("password: ",this.password)
-
     if (!this.email || !this.password) {
       this.errorMessage = 'Please enter both email and password.';
       return;
     }
     if (isValid) {
-      this.errorMessage = null; // Clear any previous error messages
-      // Implement your logic for successful login (e.g., navigate to another page)
+      this.errorMessage = null; 
     } else {
       this.errorMessage = 'Invalid email or password.';
     }

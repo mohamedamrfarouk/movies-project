@@ -15,29 +15,18 @@ export class MovieDetailsComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private moviesService: MoviesService
-    
-  ) {
-    
-    console.log("my movie id: ", this.movieId)
-
-  }
+    private moviesService: MoviesService 
+  ) {}
   
   ngOnInit() {
-    // Get the movie ID from the route parameters
-    
-  
-    // Subscribe to the getMovieById() observable
+    this.getMovieDetails()
+  }
+  getMovieDetails(){
     this.movieSubscription = this.moviesService.getMovieById(this.movieId).subscribe(
       (movieData) => {
         // Handle the successful response here
         this.movieDetails = movieData
-        console.log('Movie Details:', movieData);
         // Update your component properties with the movie data if needed
-      },
-      (error) => {
-        // Handle errors here
-        console.error('Error:', error);
       }
     );
   }

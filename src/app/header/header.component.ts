@@ -9,11 +9,11 @@ import { AuthService } from '../Services/auth.service';
 })
 export class HeaderComponent {
   @Input() headerText: string;
+  loggedIn = localStorage.getItem('loggedIn')==='true'
   constructor(private router: Router, private auth: AuthService){}
   logout(){
     localStorage.setItem('loggedIn', 'false')
     this.auth.logout()
     this.router.navigate(["/","login"])
-
   }
 }

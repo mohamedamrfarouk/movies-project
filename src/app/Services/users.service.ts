@@ -14,7 +14,6 @@ export class UsersService {
     // Load user data from CSV when the service is instantiated
     this.loadUserDataFromCsv().subscribe((data) => {
       this.userData = data;
-      console.log(this.userData)
     });
   }
 

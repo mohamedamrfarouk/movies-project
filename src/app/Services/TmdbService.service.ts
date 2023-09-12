@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class TmdbService {
-  private apiKey = 'f5d639749f95795ab5bc76ad1e2cf539';
+  private apiKey = environment.apiKey;
   private baseUrl = 'https://api.themoviedb.org/3';
 
   constructor(private httpClient: HttpClient) {}
@@ -49,7 +50,17 @@ export class TmdbService {
         return throwError(()=>'An error occurred, please try again later.');
       })
     );
-  
+  }
+  getMovies(url): Observable<any> {
+    // const url = `${this.baseUrl}/trending/movie/day`;
+    const params = new HttpParams().set('api_key', this.apiKey);
+
+    return this.httpClient.get(url, { params }).pipe(
+      catchError((error) => {
+        console.error('Error:', error);
+        return throwError(()=>'An error occurred, please try again later.');
+      })
+    );
   }
 
 }

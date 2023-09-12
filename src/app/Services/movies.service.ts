@@ -33,7 +33,6 @@ export class MoviesService {
           poster_path: result.poster_path,
           description: result.overview
         }));
-        // console.log(movies)
         // Update the BehaviorSubject with the new movies data
         this.moviesDataSubject.next(movies);
       },

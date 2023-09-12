@@ -9,17 +9,13 @@ h1{
 .logOut-btn{
     position: fixed;
     text-align: center;
-    /* width: 50px;
-    height: 50px; */
     top: 3%;
     right: 15px;
     z-index: 50;
     font-size: 15px;
     border: 1px solid white;
     color: black;
-    /* border-radius: 50%; */
     background-color: white;
-    /* line-height: 45px; */
 }
 
 .logOut-btn:hover{

@@ -11,5 +11,4 @@ export class AuthService {
   public logout(){
     this.loggedIn = false
   }
-  // constructor() { }
 }

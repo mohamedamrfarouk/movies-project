@@ -17,12 +17,10 @@
 
             <div class="tagline">
                 <h3>Tagline: {{movieDetails.tagline}}</h3>
-                <!-- <p></p> -->
             </div>
 
             <div class="average-rating">
                 <h3>AVERAGE RATING: {{movieDetails.vote_average}}/10</h3>
-                <!-- <p></p> -->
             </div>
 
             <div class="original-language">
@@ -47,36 +45,7 @@
         </div>
     </div>
 </div>
-    <div class="loading-spinner"  *ngIf="!movieDetails">
-        <app-loading></app-loading>
-    </div>
-    
-
-
-<!-- 
-    
-adult: false
-backdrop_path: "/ctMserH8g2SeOAnCw5gFjdQF8mo.jpg"
-belongs_to_collection: null
-budget: 145000000
-genres: (3) [{…}, {…}, {…}]
-homepage: "https://www.barbie-themovie.com"
-id: 346698
-imdb_id: "tt1517268"
-original_language: "en"
-original_title: "Barbie"
-overview: "Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans."
-popularity: 3733.791
-poster_path: "/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg"
-production_companies: (4) [{…}, {…}, {…}, {…}]
-production_countries: (2) [{…}, {…}]
-release_date: "2023-07-19"
-revenue: 1385132678
-runtime: 114
-spoken_languages: [{…}]
-status: "Released"
-tagline: "She's everything. He's just Ken."
-title: "Barbie"
-video: false
-vote_average: 7.38
-vote_count: 3888 -->
+<div class="loading-spinner"  *ngIf="!movieDetails">
+    <app-loading></app-loading>
+</div>
+ 
