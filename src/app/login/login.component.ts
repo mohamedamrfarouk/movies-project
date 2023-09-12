@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit{
       console.error("error: ",this.errorMessage)
     }else{
       this.authService.login()
+      localStorage.setItem("loggedIn", "true");
       this.router.navigate(['/', 'movies-catalog']);
     }
   }
