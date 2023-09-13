@@ -1,6 +1,6 @@
 <div *ngIf="movieDetails">
     
-    <a routerLink="movies-catalog" class="previous round backward-btn">&#8249;</a>
+    <a [routerLink]="'../../'" class="previous round backward-btn">&#8249;</a>
     <div class="header-content"> 
         <app-header [headerText]="movieDetails.title"></app-header> 
     </div>

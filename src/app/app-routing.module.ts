@@ -7,6 +7,8 @@ import { AuthGuardLogin } from './Auth/services/auth-guard-prevent-login.service
 const appRoutes: Routes=[
   {path: 'login',canActivate:[AuthGuardLogin], component: LoginComponent},
   {path: 'signup',canActivate:[AuthGuardLogin], component: SignUpComponent},
+  {path: 'movies-catalog', loadChildren:()=>import('./core/core.module').then(x=>x.CoreModule) },
+
 ]
 
 @NgModule({

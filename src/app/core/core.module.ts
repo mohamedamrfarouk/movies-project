@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';  
-import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 
@@ -10,6 +8,7 @@ import { MoviesComponent } from './movies-catalog/movies.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { CoreRoutingModule } from './core-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,8 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     CommonModule, 
-    BrowserModule, 
-
+    FormsModule,
     SharedModule,    
     CoreRoutingModule ,
   ],

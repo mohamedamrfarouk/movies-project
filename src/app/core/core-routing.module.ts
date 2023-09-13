@@ -6,13 +6,14 @@ import { AuthGuard } from '../Auth/services/auth-guard.service';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 const appRoutes: Routes=[
-  {path: 'movies-catalog', canActivate: [AuthGuard], component: MoviesComponent},
+  {path: '', redirectTo:'movies-catalog', pathMatch:'full'},
+  {path: '', canActivate: [AuthGuard], component: MoviesComponent},
   {path: 'movie-details/:id', canActivate: [AuthGuard], component: MovieDetailsComponent},
   {path: '**', redirectTo:'movies-catalog', pathMatch:'full'},
 ]
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
+  imports: [RouterModule.forChild(appRoutes)],
   exports: [RouterModule]
 })
 export class CoreRoutingModule { }

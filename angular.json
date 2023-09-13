@@ -45,7 +45,7 @@
                 }
               ],
               "fileReplacements": [{
-                "replace": "src/environments/environment.ts",
+                "replace": "src/environments/environment.development.ts",
                 "with": "src/environments/environment.production.ts"
 
               }],
@@ -65,10 +65,11 @@
                 }
               ],
               "fileReplacements": [{
-                "replace": "src/environments/environment.ts",
+                "replace": "src/environments/environment.development.ts",
                 "with": "src/environments/environment.testing.ts"
 
-              }],
+              }]
+              ,
               "outputHashing": "all"
             },
             "development": {
@@ -80,7 +81,7 @@
               "namedChunks": true,
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
+                  "replace": "src/environments/environment.development.ts",
                   "with": "src/environments/environment.development.ts"
                 }
               ]
@@ -96,6 +97,9 @@
             },
             "development": {
               "browserTarget": "my-first-app:build:development"
+            },
+            "testing": {
+              "browserTarget": "my-first-app:build:testing"
             }
           },
           "defaultConfiguration": "development"
