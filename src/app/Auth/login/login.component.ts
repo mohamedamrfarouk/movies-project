@@ -1,8 +1,9 @@
-import { Component , OnInit} from '@angular/core';
+import { Component , OnInit, ViewChild, OnChanges} from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from '../services/users.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -13,25 +14,24 @@ export class LoginComponent implements OnInit{
   email = '';
   password = '';
   errorMessage = null;
-  loginForm: FormGroup;
+  userData 
+  // loginForm: FormGroup;
+  @ViewChild('f') loginForm: NgForm;
+
   AuthService: any;
   constructor(private usersService: UsersService, private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
-    this.createForm()
-  }
-  createForm(){
-    this.loginForm = new FormGroup({
-      userData: new FormGroup({
-        'email': new FormControl(null, [Validators.required, Validators.email]),
-        'password': new FormControl(null, [Validators.required, Validators.minLength(8)])
-      }),
-    })
+    
   }
 
+
+
+
   onSubmit() {
-    this.email = this.loginForm.get('userData.email').value
-    this.password = this.loginForm.get('userData.password').value
+
+    this.email = this.loginForm.value.userData.email
+    this.password = this.loginForm.value.userData.password  
     const isValid = this.usersService.isUserValid(this.email, this.password);
 
     if (!this.email || !this.password) {

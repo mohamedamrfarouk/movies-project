@@ -51,7 +51,7 @@ export class TmdbService {
       })
     );
   }
-  getMovies(url): Observable<any> {
+  getMovies(url:string = 'https://api.themoviedb.org/3//movie/top_rated?language=en-US&page=1'): Observable<any> {
     // const url = `${this.baseUrl}/trending/movie/day`;
     const params = new HttpParams().set('api_key', this.apiKey);
 

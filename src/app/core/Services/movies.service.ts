@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TmdbService } from './TmdbService.service';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class MoviesService {
   }
 
   fetchTrendingMovies() {
-    this.tmdbService.getTopRatedMovies().subscribe(
+    this.tmdbService.getMovies(environment.moviesURL).subscribe(
       (data) => {
         // Handle the successful response here
         this.dataArrived =true

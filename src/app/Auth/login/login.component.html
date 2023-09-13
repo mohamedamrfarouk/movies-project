@@ -1,47 +1,61 @@
 <div class="header-content" > 
   <app-header [headerText]="'Please Login'"></app-header> 
 </div>
+
 <div class="login">
+
   <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-          <form [formGroup]="loginForm">
-            <div formGroupName="userData">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <form (ngSubmit)="onSubmit()" #f="ngForm">
+          <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
+
             <div class="form-group">
-              <label for="email">email</label>
-              <input
-                type="text"
-                id="email"
+              <label for="email">Mail</label>
+              <input 
+                type="email" 
+                id="email" 
                 class="form-control"
-                formControlName="email">
+                ngModel
+                name="email"
+                required
+                email
+                #email="ngModel">
             </div>
-            <span 
-            *ngIf="!loginForm.get('userData.email').valid && loginForm.get('userData.email').touched"
-            class="help-block">
-            please enter valid email 
-          </span>
+            <span class="help-block" *ngIf="!email.valid && email.touched">Please enter valid email</span>
+
             <div class="form-group">
               <label for="password">password</label>
-              <input
-                type="password"
-                id="password"
+              <input 
+                type="password" 
+                id="password" 
                 class="form-control"
-                formControlName="password">
+                ngModel
+                name="password"
+                password
+                required
+                #password="ngModel"
+                >
+                <span class="help-block" *ngIf="!password.valid && password.touched">Please enter valid password</span>
+
             </div>
-            <span 
-            *ngIf="!loginForm.get('userData.password').valid && loginForm.get('userData.password').touched"
-            class="help-block">
-            please enter valid password, it's length should be at least 8
-            </span>
-        </div>
-                  <br> 
-              <div class="alert alert-danger" *ngIf="errorMessage">
-                <strong>Error!</strong> {{errorMessage}}
-              </div>
-            <button class="submit-btn btn btn-primary" [disabled]="!loginForm.valid" type="submit" (click)="onSubmit()">Submit</button>
-            <a [routerLink]="'/signup'">Don't have account, switch to signup</a>
-          </form>
-        </div>
+
+
+          </div>
+
+          <p style="color: red;" *ngIf="!userData.valid && userData.touched" > user data is not valid</p>
+          <p style="color: red;" *ngIf="errorMessage && !(!userData.valid && userData.touched)" > {{errorMessage}}</p>
+
+          <button 
+            class="btn btn-primary" 
+            type="submit" 
+            [disabled]="!f.valid"
+            >Submit</button>
+        </form>
+        <a [routerLink]="'/signup'">Already have account, switch to Login</a>
+
       </div>
     </div>
+  </div>
+
 </div>
