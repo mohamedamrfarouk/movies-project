@@ -1,8 +1,8 @@
 import { Component , OnInit} from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
-import { UsersService } from '../Services/users.service';
+import { UsersService } from '../services/users.service';
 import { Router } from '@angular/router';
-import { AuthService } from '../Services/auth.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',

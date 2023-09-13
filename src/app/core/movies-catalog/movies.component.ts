@@ -3,6 +3,7 @@ import { MoviesService } from '../Services/movies.service';
 import { TmdbService } from '../Services/TmdbService.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ThisReceiver } from '@angular/compiler';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-movies',

@@ -4,13 +4,13 @@ import { RouterTestingModule } from "@angular/router/testing";
 import { MoviesComponent } from './movies.component';
 import { MoviesService } from '../Services/movies.service';
 import { HttpClientModule } from '@angular/common/http';
-import { HeaderComponent } from '../header/header.component';
-import { LoadingComponent } from '../loading/loading.component';
+import { HeaderComponent } from '../../shared/header/header.component';
+import { LoadingComponent } from '../../shared/loading/loading.component';
 import { MovieComponent } from '../movie/movie.component';
 import { By } from '@angular/platform-browser';
-import { AuthService } from '../Services/auth.service';
+import { AuthService } from '../../Auth/services/auth.service';
 import { RouterModule, ActivatedRoute, Router } from '@angular/router';
-import { AuthGuard } from '../Services/auth-guard.service';
+import { AuthGuard } from '../../Auth/services/auth-guard.service';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
