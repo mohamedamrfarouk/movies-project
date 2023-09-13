@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+.auth-form-margin-top{
+    margin-top: 100px;
+}
+.auth-form-submit-btn{
+    margin-right: 10px;
+}

@@ -2,14 +2,13 @@
   <app-header [headerText]="'Please Login'"></app-header> 
 </div>
 
-<div class="login">
+<div class="auth-form-margin-top">
 
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-        <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <form (ngSubmit)="onSubmit()" #LoginForm="ngForm">
           <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
-
             <div class="form-group">
               <label for="email">Mail</label>
               <input 
@@ -22,7 +21,7 @@
                 email
                 #email="ngModel">
             </div>
-            <span class="help-block" *ngIf="!email.valid && email.touched">Please enter valid email</span>
+            <p style="color: red;" class="help-block" *ngIf="!email.valid && email.touched">Please enter valid email</p>
 
             <div class="form-group">
               <label for="password">password</label>
@@ -36,23 +35,23 @@
                 required
                 #password="ngModel"
                 >
-                <span class="help-block" *ngIf="!password.valid && password.touched">Please enter valid password</span>
-
+                <p style="color: red;" class="help-block" *ngIf="!password.valid && password.touched">Please enter valid password</p>
             </div>
 
 
           </div>
 
-          <p style="color: red;" *ngIf="!userData.valid && userData.touched" > user data is not valid</p>
-          <p style="color: red;" *ngIf="errorMessage && !(!userData.valid && userData.touched)" > {{errorMessage}}</p>
+          <p style="color: red;" *ngIf="errorMessage && !(!userData.valid && userData.touched)" > * {{errorMessage}}</p>
 
           <button 
-            class="btn btn-primary" 
+            class="btn btn-primary auth-form-submit-btn" 
             type="submit" 
-            [disabled]="!f.valid"
+            [disabled]="!LoginForm.valid"
             >Submit</button>
+
+            <a [routerLink]="'/signup'">I don't have account, switch to SignUp</a>
+
         </form>
-        <a [routerLink]="'/signup'">Already have account, switch to Login</a>
 
       </div>
     </div>

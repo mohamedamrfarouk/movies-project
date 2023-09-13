@@ -8,7 +8,6 @@ import { environment } from 'src/environments/environment.development';
 })
 
 export class MoviesService {
-  // Create a BehaviorSubject to hold movies data
   private moviesDataSubject = new BehaviorSubject<any[]>([]);
   public dataArrived = false
   constructor(private tmdbService: TmdbService) {
@@ -18,7 +17,6 @@ export class MoviesService {
   fetchTrendingMovies() {
     this.tmdbService.getMovies(environment.moviesURL).subscribe(
       (data) => {
-        // Handle the successful response here
         this.dataArrived =true
         const results = data.results;
         const movies = results.map((result) => ({
@@ -34,17 +32,14 @@ export class MoviesService {
           poster_path: result.poster_path,
           description: result.overview
         }));
-        // Update the BehaviorSubject with the new movies data
         this.moviesDataSubject.next(movies);
       },
       (error) => {
-        // Handle errors here
         console.error('Error:', error);
       }
     );
   }
 
-  // Get movies data as an Observable
   getMoviesDataObservable(): Observable<any[]> {
     return this.moviesDataSubject.asObservable();
   }

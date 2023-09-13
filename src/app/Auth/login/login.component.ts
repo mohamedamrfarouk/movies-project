@@ -1,8 +1,8 @@
 import { Component , OnInit, ViewChild, OnChanges} from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
-import { UsersService } from '../services/users.service';
+import { UsersService } from '../guards/users.service';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../guards/auth.service';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -15,8 +15,7 @@ export class LoginComponent implements OnInit{
   password = '';
   errorMessage = null;
   userData 
-  // loginForm: FormGroup;
-  @ViewChild('f') loginForm: NgForm;
+  @ViewChild('LoginForm') loginForm: NgForm;
 
   AuthService: any;
   constructor(private usersService: UsersService, private authService: AuthService, private router: Router) {}
@@ -24,10 +23,6 @@ export class LoginComponent implements OnInit{
   ngOnInit() {
     
   }
-
-
-
-
   onSubmit() {
 
     this.email = this.loginForm.value.userData.email

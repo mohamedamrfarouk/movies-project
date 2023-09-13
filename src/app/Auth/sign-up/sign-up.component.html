@@ -2,7 +2,7 @@
     <app-header [headerText]="'Please SignUp'"></app-header> 
 </div>
 
-  <div class="signup">
+  <div class="auth-form-margin-top">
     <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
@@ -16,11 +16,11 @@
                   class="form-control"
                   formControlName="email">
               </div>
-              <span 
+              <p style="color: red;"
               *ngIf="!signupForm.get('userData.email').valid && signupForm.get('userData.email').touched"
               class="help-block">
               please enter valid email 
-            </span>
+            </p>
               <div class="form-group">
                 <label for="password">password</label>
                 <input
@@ -29,17 +29,17 @@
                   class="form-control"
                   formControlName="password">
               </div>
-              <span 
+              <p style="color: red;"
               *ngIf="!signupForm.get('userData.password').valid && signupForm.get('userData.password').touched"
               class="help-block">
               please enter valid password, it's length should be at least 8
-              </span>
+              </p>
           </div>
           <br>               
           <p class="alert alert-danger" *ngIf="errorMessage">
             <strong>Error!</strong> {{errorMessage}}
           </p>
-          <button class="submit-btn btn btn-primary" [disabled]="!signupForm.valid" type="submit" (click)="onSubmit()">Submit</button>
+          <button class="auth-form-submit-btn btn btn-primary" [disabled]="!signupForm.valid" type="submit" (click)="onSubmit()">Submit</button>
           <a [routerLink]="'/login'">Already have account, switch to Login</a>
             </form>
           </div>

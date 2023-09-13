@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MoviesService } from '../Services/movies.service';
+import { MoviesService } from '../../Services/movies.service';
 import { Subscription } from 'rxjs';
 import { RouterModule } from '@angular/router';
 

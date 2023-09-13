@@ -2,15 +2,15 @@ import { ComponentFixture, TestBed, async, fakeAsync, tick, waitForAsync } from 
 import { RouterTestingModule } from "@angular/router/testing";
 
 import { MoviesComponent } from './movies.component';
-import { MoviesService } from '../Services/movies.service';
+import { MoviesService } from '../../Services/movies.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from '../../shared/header/header.component';
 import { LoadingComponent } from '../../shared/loading/loading.component';
 import { MovieComponent } from '../movie/movie.component';
 import { By } from '@angular/platform-browser';
-import { AuthService } from '../../Auth/services/auth.service';
+import { AuthService } from '../../Auth/guards/auth.service';
 import { RouterModule, ActivatedRoute, Router } from '@angular/router';
-import { AuthGuard } from '../../Auth/services/auth-guard.service';
+import { AuthGuard } from '../../Auth/guards/auth-guard.service';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
@@ -49,7 +49,6 @@ describe('MoviesComponent', () => {
 
     fixture = TestBed.createComponent(MoviesComponent);
     component = fixture.debugElement.componentInstance;
-    // fixture.detectChanges();
   });
 
   it('should be created', () => {
@@ -57,7 +56,6 @@ describe('MoviesComponent', () => {
     component = fixture.debugElement.componentInstance;
     expect(component).toBeTruthy();
   });
-
 
   it('should use movies service',()=>{
     moviesService = fixture.debugElement.injector.get(MoviesService);
