@@ -12,6 +12,7 @@ import { AuthService } from '../../Auth/guards/auth.service';
 import { RouterModule, ActivatedRoute, Router } from '@angular/router';
 import { AuthGuard } from '../../Auth/guards/auth-guard.service';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { of } from 'rxjs';
 
 
 describe('MoviesComponent', () => {
@@ -101,5 +102,20 @@ describe('MoviesComponent', () => {
 
     }); 
   }))
+
+  it('should load mock data from the service', waitForAsync(() => {
+    moviesService = TestBed.inject(MoviesService);
+    spyOn(moviesService, 'getMoviesDataObservable').and.returnValue(of(mockMovie));
+
+    component.getData()
+    
+    fixture.detectChanges(); 
+    fixture.whenStable().then(() => {
+      fixture.detectChanges(); 
+      expect(moviesService.getMoviesDataObservable).toHaveBeenCalled();
+      expect(component.movies.length).toBeGreaterThan(0);
+    }
+  )
+}));
 
 });

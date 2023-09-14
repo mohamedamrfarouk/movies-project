@@ -21,7 +21,7 @@
                 email
                 #email="ngModel">
             </div>
-            <p style="color: red;" class="help-block" *ngIf="!email.valid && email.touched">Please enter valid email</p>
+            <p class="auth-notvalid-text help-block" *ngIf="!email.valid && email.touched">Please enter valid email</p>
 
             <div class="form-group">
               <label for="password">password</label>
@@ -35,20 +35,21 @@
                 required
                 #password="ngModel"
                 >
-                <p style="color: red;" class="help-block" *ngIf="!password.valid && password.touched">Please enter valid password</p>
+                <p class="help-block auth-notvalid-text" *ngIf="!password.valid && password.touched">Please enter valid password</p>
             </div>
 
 
           </div>
 
-          <p style="color: red;" *ngIf="errorMessage && !(!userData.valid && userData.touched)" > * {{errorMessage}}</p>
+          <p class="auth-notvalid-text" *ngIf="errorMessage && !(!userData.valid && userData.touched)" > * {{errorMessage}}</p>
 
           <button 
-            class="btn btn-primary auth-form-submit-btn" 
+            mat-raised-button
+            color="primary"
+            class="auth-form-submit-btn" 
             type="submit" 
             [disabled]="!LoginForm.valid"
             >Submit</button>
-
             <a [routerLink]="'/signup'">I don't have account, switch to SignUp</a>
 
         </form>

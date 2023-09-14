@@ -39,7 +39,13 @@
           <p class="alert alert-danger" *ngIf="errorMessage">
             <strong>Error!</strong> {{errorMessage}}
           </p>
-          <button class="auth-form-submit-btn btn btn-primary" [disabled]="!signupForm.valid" type="submit" (click)="onSubmit()">Submit</button>
+          <button 
+          mat-raised-button
+          color="primary" 
+          class="auth-form-submit-btn" 
+          [disabled]="!signupForm.valid" 
+          type="submit" 
+          (click)="onSubmit()">Submit</button>
           <a [routerLink]="'/login'">Already have account, switch to Login</a>
             </form>
           </div>

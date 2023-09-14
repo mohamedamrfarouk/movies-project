@@ -11,7 +11,6 @@ import { AuthService } from './Auth/guards/auth.service';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './Auth/Auth.module';
-import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +26,7 @@ import { CoreModule } from './core/core.module';
 
     SharedModule,
     AuthModule,
+    
     
   ],
   providers: [AuthGuard, AuthService],
